@@ -10,7 +10,7 @@ public:
 	void addFirst(T info);
 	void removeLast();
 	void displayList();
-	void removeFirst();
+	T removeFirst();
 	void removeInfo(T toRemove);
 };
 
@@ -43,10 +43,12 @@ void LinkedList<T>::displayList() {
 }
 
 template<class T>
-void LinkedList<T>::removeFirst() {
+T LinkedList<T>::removeFirst() {
 	Node<T> *temp = this->_head;
 	this->_head = this->_head->Next;
+	T info = temp->Info;
 	delete temp;
+	return info;
 }
 
 template<class T>
